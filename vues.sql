@@ -1,14 +1,22 @@
 CREATE VIEW projet_resume AS
 	SELECT p.id AS id_projet,
-		ph.url_photo,
 		p.titre,
 		CONCAT(SUBSTRING(p.description, 0, 197), '...'),
 		l.localite,
+		ph.url_photo,
 		pp.tot,
 		p.cout_du_projet
 	FROM projet p
-	LEFT JOIN photo ph
-	 ON ph.id_projet = p.id AND ph.est_publique = true
+	-- LEFT JOIN photo ph
+	--  ON ph.id_projet = p.id AND ph.est_publique = true
+	JOIN
+		(
+			SELECT ph.url_photo url_photo, ph.id_projet, ph.est_publique, ph.est_principale
+			FROM photo ph
+			WHERE ph.est_principale = TRUE
+		)
+		ph
+	 ON p.id = ph.id_projet AND ph.est_publique = true
 	LEFT JOIN localisation l
 	 ON p.id_localisation = l.id
 	JOIN
@@ -19,7 +27,6 @@ CREATE VIEW projet_resume AS
 		)
 		pp
 		ON p.id = pp.id_projet
-	LIMIT 1
 
 CREATE VIEW projet_details AS
 	SELECT p.id AS id_projet,
