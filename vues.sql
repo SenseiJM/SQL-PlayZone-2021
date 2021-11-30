@@ -26,7 +26,7 @@ CREATE VIEW projet_resume AS
 			GROUP BY pp.id_projet
 		)
 		pp
-		ON p.id = pp.id_projet
+		ON p.id = pp.id_projet;
 
 CREATE VIEW projet_details AS
 	SELECT p.id AS id_projet,
@@ -49,7 +49,7 @@ CREATE VIEW projet_details AS
 			GROUP BY pp.id_projet
 		)
 		pp
-		ON p.id = pp.id_projet
+		ON p.id = pp.id_projet;
 
 CREATE VIEW Marqueurs AS (
 	SELECT latitude, longitude, infrastructure, p.id

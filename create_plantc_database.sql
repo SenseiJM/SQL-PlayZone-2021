@@ -43,6 +43,7 @@ CREATE TABLE photo(
 	id_projet INT NOT NULL,
 	est_publique BOOL NOT NULL DEFAULT FALSE,
 	url_photo VARCHAR(255) NOT NULL,
+	est_principale BOOL NOT NULL DEFAULT FALSE,
 	CONSTRAINT fk_id_projet FOREIGN KEY(id_projet)
 	 REFERENCES projet(id)
 );
