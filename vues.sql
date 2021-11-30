@@ -50,3 +50,9 @@ CREATE VIEW projet_details AS
 		)
 		pp
 		ON p.id = pp.id_projet
+
+CREATE VIEW Marqueurs AS (
+	SELECT latitude, longitude, infrastructure, p.id
+	FROM projet p
+	JOIN localisation ON p.id_localisation = localisation.id
+)
