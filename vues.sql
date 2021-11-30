@@ -51,6 +51,11 @@ CREATE VIEW projet_details AS
 		pp
 		ON p.id = pp.id_projet;
 
+CREATE VIEW localisation_zip AS
+	SELECT id, localite, code_postal
+	FROM localisation
+	ORDER BY code_postal
+
 CREATE VIEW Marqueurs AS (
 	SELECT latitude, longitude, infrastructure, p.id
 	FROM projet p
