@@ -10,7 +10,7 @@ CREATE TABLE adresse(
 
 CREATE TABLE localisation(
 	id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-	id_adresse INT NOT NULL,
+	id_adresse INT,
 	localite VARCHAR(50) NOT NULL,
 	code_postal VARCHAR(10) NOT NULL,
 	latitude DECIMAL(10,7) NOT NULL CHECK(latitude BETWEEN -180 AND 180),
