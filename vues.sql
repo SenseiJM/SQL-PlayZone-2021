@@ -9,7 +9,7 @@ CREATE VIEW projet_resume AS
 	FROM projet p
 	-- LEFT JOIN photo ph
 	--  ON ph.id_projet = p.id AND ph.est_publique = true
-	JOIN
+	LEFT JOIN
 		(
 			SELECT ph.url_photo url_photo, ph.id_projet, ph.est_publique, ph.est_principale
 			FROM photo ph
@@ -19,7 +19,7 @@ CREATE VIEW projet_resume AS
 	 ON p.id = ph.id_projet AND ph.est_publique = true
 	LEFT JOIN localisation l
 	 ON p.id_localisation = l.id
-	JOIN
+	LEFT JOIN
 		(
 			SELECT pp.id_projet, SUM(pp.contribution) tot
 			FROM projet_participant pp
@@ -38,11 +38,11 @@ CREATE VIEW projet_details AS
 		pp.tot,
 		p.cout_du_projet
 	FROM projet p
-	LEFT JOIN photo ph
+	LEFT OUTER JOIN photo ph
 	 ON ph.id_projet = p.id AND ph.est_publique = true
 	LEFT JOIN localisation l
 	 ON p.id_localisation = l.id
-	JOIN
+	LEFT JOIN
 		(
 			SELECT pp.id_projet, SUM(pp.contribution) tot
 			FROM projet_participant pp
