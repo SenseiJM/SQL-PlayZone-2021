@@ -1,7 +1,7 @@
 CREATE VIEW projet_resume AS
 	SELECT p.id AS id_projet,
 		p.titre,
-		CONCAT(SUBSTRING(p.description, 0, 197), '...'),
+		CONCAT(SUBSTRING(p.description, 0, 197), '...') AS description,
 		l.localite,
 		ph.url_photo,
 		pp.tot,

@@ -116,3 +116,17 @@ CREATE TABLE tache(
 	CONSTRAINT fk_id_localisation FOREIGN KEY(id_localisation)
 	 REFERENCES localisation(id)
 );
+
+CREATE TABLE commentaire(
+	id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	_date TIMESTAMP NOT NULL,
+	contenu VARCHAR,
+	auteur VARCHAR(50) NOT NULL,
+	id_tache INT NOT NULL,
+	id_photo INT NOT NULL,
+	_type VARCHAR(50) NOT NULL,
+	CONSTRAINT fk_id_tache FOREIGN KEY(id_tache)
+	 REFERENCES tache(id),
+	CONSTRAINT fk_id_photo FOREIGN KEY(id_photo)
+	 REFERENCES photo(id)
+);
