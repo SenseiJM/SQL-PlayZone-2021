@@ -47,3 +47,13 @@ INSERT INTO projet_tag(id_projet, id_tag) VALUES
 	(2, 2),
 	(2, 3)
 ;
+
+INSERT INTO tache(id_participant, intitule, date_debut, date_fin, id_projet, _type, id_localisation, description, est_assigne, est_termine) VALUES
+	(1, 'Tondre', '2021-12-07', '2021-12-09', 1, 'TypeDeTache1', 1, 'Ceci est la description de la tâche 1', true, false),
+	(1, 'Arroser', '2021-12-07', '2021-12-10', 2, 'TypeDeTache2', 2, 'Ceci est la description de la tâche 2', true, true)
+;
+
+INSERT INTO commentaire(_date, contenu, auteur, id_tache, id_photo, _type) VALUES
+	('2021-12-06', 'Sacrebleu, ce commentaire est fabuleux !', 'Jean-Michel', 1, 1, 'TypeDeCommentaire1'),
+	('2021-12-06', 'Fichtre, ce commentaire est atroce !', 'Dylan', 2, 1, 'TypeDeCommentaire2')
+;
