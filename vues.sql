@@ -5,7 +5,8 @@ CREATE VIEW projet_resume AS
 		l.localite,
 		ph.url_photo,
 		pp.tot,
-		p.cout_du_projet
+		p.cout_du_projet,
+		p.infrastructure
 	FROM projet p
 	-- LEFT JOIN photo ph
 	--  ON ph.id_projet = p.id AND ph.est_publique = true
