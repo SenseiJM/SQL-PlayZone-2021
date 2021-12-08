@@ -99,22 +99,18 @@ CREATE TABLE projet_tag(
 
 CREATE TABLE tache(
 	id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-	id_participant INT NOT NULL,
-	intitule VARCHAR(50) NOT NULL,
+	id_participant,
 	date_debut DATE,
 	date_fin DATE,
 	id_projet INT NOT NULL,
 	_type VARCHAR(50) NOT NULL,
-	id_localisation INT NOT NULL,
 	description VARCHAR,
 	est_assigne BOOL NOT NULL DEFAULT FALSE,
 	est_termine BOOL NOT NULL DEFAULT FALSE,
 	CONSTRAINT fk_id_participant FOREIGN KEY(id_participant)
 	 REFERENCES participant(id),
 	CONSTRAINT fk_id_projet FOREIGN KEY(id_projet)
-	 REFERENCES projet(id),
-	CONSTRAINT fk_id_localisation FOREIGN KEY(id_localisation)
-	 REFERENCES localisation(id)
+	 REFERENCES projet(id)
 );
 
 CREATE TABLE commentaire(
