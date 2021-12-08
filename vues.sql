@@ -62,3 +62,19 @@ CREATE VIEW Marqueurs AS (
 	FROM projet p
 	JOIN localisation ON p.id_localisation = localisation.id
 );
+create view tache_details as (
+	select 
+	t.*, 
+	p.nom as nom_participant, 
+	p.prenom as prenom_participant,
+	p.fonction as fonction_participant,
+	p.mail as mail_participant,
+	pr.titre as titre_projet,
+	pr.reference as reference_projet,
+	l.localite as localite_projet,
+	l.code_postal as code_postal
+	from tache as t
+	left join participant as p on p.id = t.id_participant
+	join projet as pr on pr.id = t.id_projet
+	join localisation as l on l.id = pr.id_localisation
+);
