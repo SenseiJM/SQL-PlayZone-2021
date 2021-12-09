@@ -65,6 +65,7 @@ CREATE TABLE participant(
 	salt VARCHAR(50) NOT NULL,
 	mdp_client VARCHAR NOT NULL,
 	user_level user_level NOT NULL DEFAULT 'user',
+	est_verifie BOOL NOT NULL DEFAULT FALSE,
 	CONSTRAINT fk_id_adresse FOREIGN KEY(id_adresse)
 	 REFERENCES adresse(id)
 );
