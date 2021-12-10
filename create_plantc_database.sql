@@ -100,7 +100,7 @@ CREATE TABLE projet_tag(
 
 CREATE TABLE tache(
 	id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-	id_participant,
+	id_participant INT,
 	date_debut DATE,
 	date_fin DATE,
 	id_projet INT NOT NULL,
