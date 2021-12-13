@@ -42,7 +42,7 @@ CREATE TABLE photo(
 	id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 	id_projet INT NOT NULL,
 	est_publique BOOL NOT NULL DEFAULT FALSE,
-	url_photo VARCHAR(255) NOT NULL,
+	url_photo VARCHAR NOT NULL,
 	est_principale BOOL NOT NULL DEFAULT FALSE,
 	CONSTRAINT fk_id_projet FOREIGN KEY(id_projet)
 	 REFERENCES projet(id)
@@ -61,7 +61,7 @@ CREATE TABLE participant(
 	nom VARCHAR(50) NOT NULL,
 	prenom VARCHAR(50) NOT NULL,
 	mail VARCHAR(50) NOT NULL,
-	telephone VARCHAR(15) NOT NULL,
+	telephone VARCHAR(15),
 	salt VARCHAR(50) NOT NULL,
 	mdp_client VARCHAR NOT NULL,
 	user_level user_level NOT NULL DEFAULT 'user',

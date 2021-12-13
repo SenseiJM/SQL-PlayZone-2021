@@ -48,9 +48,9 @@ CREATE VIEW projet_details AS
 			SELECT pp.id_projet, SUM(pp.contribution) tot
 			FROM projet_participant pp
 			GROUP BY pp.id_projet
-		)
-		pp
-		ON p.id = pp.id_projet;
+		) pp
+	ON p.id = pp.id_projet
+;
 
 CREATE VIEW localisation_zip AS (
 	SELECT id, localite, code_postal
